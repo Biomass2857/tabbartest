@@ -3,7 +3,12 @@ import SwiftUI
 @main struct MyApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if AppConfig.useUIKit {
+                UIKitTabView()
+                    .ignoresSafeArea()
+            } else {
+                SwiftUITabView()
+            }
         }
     }
 }
